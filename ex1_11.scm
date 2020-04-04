@@ -1,5 +1,6 @@
 ; f(n) = n if n < 3
 ; f(n) = f(n - 1) + 2f(n-2) + 3(n-3) if n >= 3
+; Write a procedure witih recursive & iterative process.
 
 ; Recursive
 ; Since the state can be saved via recursive process, this is straight forward.
