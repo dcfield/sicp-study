@@ -104,3 +104,41 @@
   ) 
   (iter (if (odd? start) start (+ start 1)))
 )
+
+; Part II Question
+; Use your procedure to find the three smallest primes larger than 1000
+; larger than 10,000
+; larger than 100,000
+; larger than 1,000,000. 
+; Note the time needed to test each prime. 
+; Since the testing algorithm has order of growth of Θ(root(n)), 
+; you should expect that testing for primes around 10,000 
+; should take about root(10) times as long as testing for primes around 1000. 
+; Do your timing data bear this out?
+
+; Part II timings calculations
+; root(10) ~ 3.16
+; First, get timings of smallest primes larger than 1000.
+
+(search-for-primes 1000 1100)
+; 1009 *** 0.
+; 1013 *** 0.
+; 1019 *** 0.
+; Too small - let's try some much bigger numbers.
+
+(search-for-primes 100000000000 100000000100)
+; 100000000003 *** .45999999999999996
+; 100000000019 *** .4800000000000004
+; 100000000057 *** .4599999999999991
+
+; Before doing a calculation of a range bigger by a factor of 10, let's estimate the timings.
+; Prime 1 should equal (.45 * 3.16) ~ 1.42s
+; Prime 2 should equal (.48 * 3.16) ~ 1.52s
+; Prime 3 should equal (.46 * 3.16) ~ 1.45s
+
+; Let's test!
+(search-for-primes 1000000000000 1000000000100)
+; 1000000000039 *** 1.4600000000000009
+; 1000000000061 *** 1.4700000000000006
+; 1000000000063 *** 1.4699999999999989
+; Not far off!
